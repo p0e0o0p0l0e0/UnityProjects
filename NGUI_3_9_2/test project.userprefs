@@ -1,0 +1,26 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/NGUI/Scripts/Interaction/UIScrollView.cs">
+    <Files>
+      <File FileName="../备份/pa_project/Client/Assets/Src/Util/CacheBehaviour.cs" Line="8" Column="57" />
+      <File FileName="Assets/NGUI/Scripts/UI/UIAnchor.cs" Line="6" Column="2" />
+      <File FileName="Assets/NGUI/Scripts/UI/UICamera.cs" Line="1331" Column="23" />
+      <File FileName="Assets/NGUI/Scripts/Internal/NGUITools.cs" Line="524" Column="35" />
+      <File FileName="Assets/NGUI/Scripts/UI/UILabel.cs" Line="16" Column="9" />
+      <File FileName="Assets/NGUI/Scripts/UI/UIAtlas.cs" Line="243" Column="6" />
+      <File FileName="Assets/NGUI/Scripts/Internal/BetterList.cs" Line="64" Column="34" />
+      <File FileName="Assets/NGUI/Scripts/Internal/EventDelegate.cs" Line="558" Column="7" />
+      <File FileName="Assets/NGUI/Scripts/Internal/Localization.cs" Line="77" Column="24" />
+      <File FileName="Assets/NGUI/Scripts/Internal/NGUIText.cs" Line="1663" Column="55" />
+      <File FileName="Assets/NGUI/Scripts/UI/UIPanel.cs" Line="1275" Column="32" />
+      <File FileName="Assets/NGUI/Scripts/Internal/UIDrawCall.cs" Line="79" Column="24" />
+      <File FileName="Assets/NGUI/Scripts/Internal/UIWidget.cs" Line="444" Column="18" />
+      <File FileName="Assets/NGUI/Scripts/Interaction/UICenterOnChild.cs" Line="43" Column="6" />
+      <File FileName="Assets/NGUI/Scripts/Interaction/UIScrollView.cs" Line="16" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
