@@ -1,7 +1,13 @@
 ManifestFileVersion: 0
-CRC: 1519205197
+CRC: 3096122723
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: mainbundle
+      Name: flagbundle
+      Dependencies: {}
+    Info_1:
+      Name: squarebundle.1
+      Dependencies: {}
+    Info_2:
+      Name: squarebundle.2
       Dependencies: {}

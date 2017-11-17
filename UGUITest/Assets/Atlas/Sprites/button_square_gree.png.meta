@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6a7ecfbafd404182b252de65f2c7401
+guid: 7c13c77c3ba1640309cd085aa6bbe924
 timeCreated: 1510302078
 licenseType: Free
 TextureImporter:
@@ -53,5 +53,5 @@ TextureImporter:
     outline: []
   spritePackingTag: 2
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: squarebundle
+  assetBundleVariant: 1

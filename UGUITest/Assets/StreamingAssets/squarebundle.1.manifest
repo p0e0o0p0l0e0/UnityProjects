@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3534317022
+CRC: 3005714360
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2b50a57a5457b63e9652c62cce441bf7
+    Hash: f8da940cf15dc98c605874143c1533db
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9dea23ffc7e96552740e12d1ee5309d8
@@ -14,6 +14,6 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Atlas/Main/flag_blue.png
-- Assets/Atlas/Main/flag_yellow.png
+- Assets/Atlas/Sprites/button_square_orange.png
+- Assets/Atlas/Sprites/button_square_gree.png
 Dependencies: []
