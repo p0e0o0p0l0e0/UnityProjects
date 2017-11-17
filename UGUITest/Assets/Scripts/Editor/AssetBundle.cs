@@ -54,6 +54,24 @@ public class AssetBundle
 			GetBuildTarget()); 
 	}
 
+	[MenuItem ("MyMenu/Bundle/Rebuild All AssetBundles")]
+	static private void RebuildAllAssetBundles()
+	{
+		BuildPipeline.BuildAssetBundles(
+			Application.dataPath + "/StreamingAssets",  // output path
+			BuildAssetBundleOptions.ChunkBasedCompression |
+			BuildAssetBundleOptions.ForceRebuildAssetBundle,  // options
+			GetBuildTarget()); 
+	}
+
+	[MenuItem("MyMenu/Bundle/Get AssetBundle names")]
+	static void GetNames()
+	{
+		var names = AssetDatabase.GetAllAssetBundleNames();
+		foreach (var name in names)
+			Debug.Log("AssetBundle: " + name);
+	}
+
 	static private BuildTarget GetBuildTarget()
 	{
 		BuildTarget target = BuildTarget.WebPlayer;
@@ -65,5 +83,14 @@ public class AssetBundle
 		target = BuildTarget.Android;
 		#endif
 		return target;
+	}
+}
+
+public class MyPostprocessor : AssetPostprocessor
+{
+	
+	void OnPostprocessAssetbundleNameChanged(string path, string previous, string next)
+	{
+		Debug.Log("AB: " + path + " old: " + previous + " new: " + next);
 	}
 }
