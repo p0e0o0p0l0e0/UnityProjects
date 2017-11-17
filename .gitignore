@@ -3,3 +3,6 @@ NGUI_3_9_2/Library
 GameFramework/Library
 UGUITest/obj/Debug
 UGUITest/Temp
+UGUITest.userprefs
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj

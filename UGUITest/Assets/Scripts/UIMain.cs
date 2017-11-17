@@ -35,4 +35,17 @@ public class UIMain : MonoBehaviour{
 		#endif	
 	}
 
+	void OnGUI()
+	{
+		if(GUI.Button(new Rect(0, 0, 100, 100), "unload false"))
+		{
+			if(assetbundle != null)
+				assetbundle.Unload(false);
+		}
+		else if(GUI.Button(new Rect(0, 150, 100, 100), "unload true"))
+		{
+			if(assetbundle != null)
+				assetbundle.Unload(true);
+		}
+	}
 }
