@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2852715578
+CRC: 1089519253
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 82833bd640c61247432eb5c3005bbb39
+    Hash: 4896645a6da4161aba021b8114586287
   TypeTreeHash:
     serializedVersion: 2
     Hash: 72d7e2af041230b1a5a143019175a3c5
@@ -24,6 +24,9 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Resources/Sprite/flag_blue.prefab
-- Assets/Resources/Sprite/flag_yellow.prefab
+- Assets/Prefabs/Sprites/flag_blue.prefab
+- Assets/Prefabs/Sprites/flag_grey.prefab
+- Assets/Prefabs/Sprites/flag_white.prefab
+- Assets/Prefabs/Sprites/flag_green.prefab
+- Assets/Prefabs/Sprites/flag_yellow.prefab
 Dependencies: []
