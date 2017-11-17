@@ -19,7 +19,7 @@ public class UIMain : MonoBehaviour{
 		GameObject go = new GameObject(sprite.name);
 		go.layer = LayerMask.NameToLayer("UI");
 		go.transform.parent = transform;
-		go.transform.localScale= Vector3.one;
+		go.transform.localScale = Vector3.one;
 		Image image = go.AddComponent<Image>();
 		image.sprite = sprite;
 		image.SetNativeSize();

@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-class NonCacheBundle : MonoBehaviour
+public class CacheBundle : MonoBehaviour
 {
 	//根据平台，得到相应的路径
 	public static readonly string BundleURL =
@@ -15,13 +15,25 @@ class NonCacheBundle : MonoBehaviour
 		#else
 		string.Empty;
 		#endif
+	
+	private string AssetName = "flag_blue";
 
-	private string AssetName = "flag_yellow";
+	//版本号
+	public int version;
 
-	IEnumerator Start()
+	void Start()
 	{
-		// 从URL中下载文件，不会存储在缓存中。
-		using (WWW www = new WWW(BundleURL))
+		StartCoroutine(DownloadAndCache());
+	}
+
+	IEnumerator DownloadAndCache()
+	{
+		// 需要等待缓存准备好
+		while (!Caching.ready)
+			yield return null;
+
+		// 有相同版本号的AssetBundle就从缓存中获取，否则下载进缓存。
+		using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))
 		{
 			yield return www;
 			if (www.error != null)
@@ -30,10 +42,10 @@ class NonCacheBundle : MonoBehaviour
 			GameObject go = Instantiate(bundle.LoadAsset(AssetName)) as GameObject;
 			go.layer = LayerMask.NameToLayer("UI");
 			go.transform.parent = transform;
-			go.transform.position = new Vector3(0f, 0f, 0f);
+			go.transform.position = new Vector3(1.5f, 0f, 0f);
 			// 卸载加载完之后的AssetBundle，节省内存。
 			bundle.Unload(false);
 
-		}//由于使用using语法，www.Dispose将在加载完成后调用，释放内存
+		} //由于使用using语法，www.Dispose将在加载完成后调用，释放内存
 	}
 }
