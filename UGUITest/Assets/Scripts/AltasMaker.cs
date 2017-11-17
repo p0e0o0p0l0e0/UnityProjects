@@ -62,7 +62,7 @@ public class AltasMaker : MonoBehaviour {
 			string[] spriteNames = new string[assets.Count];
 			for(int i = 0; i < assets.Count; i++)
 			{
-				spriteNames[i] = "Assets/Atlas/Main/" + assets[i].name + ".png"; // 注意路径写全 
+				spriteNames[i] = "Assets/Atlas/" + dirInfo.Name + "/" + assets[i].name + ".png"; // 注意路径写全 
 			}
 			buildMap[0].assetNames = spriteNames;
 
@@ -72,6 +72,15 @@ public class AltasMaker : MonoBehaviour {
 				BuildAssetBundleOptions.UncompressedAssetBundle,  // options
 				GetBuildTarget()); // build target
 		}	
+	}
+
+	[MenuItem ("MyMenu/Build All AssetBundles")]
+	static private void BuildAllAssetBundles()
+	{
+		BuildPipeline.BuildAssetBundles(
+			Application.dataPath + "/StreamingAssets",  // output path
+			BuildAssetBundleOptions.UncompressedAssetBundle,  // options
+			GetBuildTarget()); 
 	}
 
 	static private BuildTarget GetBuildTarget()
