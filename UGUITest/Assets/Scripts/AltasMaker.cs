@@ -79,7 +79,7 @@ public class AltasMaker : MonoBehaviour {
 	{
 		BuildPipeline.BuildAssetBundles(
 			Application.dataPath + "/StreamingAssets",  // output path
-			BuildAssetBundleOptions.UncompressedAssetBundle,  // options
+			BuildAssetBundleOptions.ChunkBasedCompression,  // options
 			GetBuildTarget()); 
 	}
 
