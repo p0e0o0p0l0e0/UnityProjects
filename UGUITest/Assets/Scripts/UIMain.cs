@@ -1,16 +1,21 @@
-﻿using UnityEngine;
+﻿#define USE_ASSETBUNDLE
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEditor.VersionControl;
 
-public class UIMain : MonoBehaviour {
+public class UIMain : MonoBehaviour{
 
+	AssetBundle assetbundle = null;
 	void Start () 
 	{
 		CreatImage(loadSprite("flag_blue"));
 		CreatImage(loadSprite("flag_yellow"));
 	}
 
-	private void CreatImage(Sprite sprite ){
+	private void CreatImage(GameObject gobj ){
+		Sprite sprite = gobj.GetComponent<SpriteRenderer>().sprite as Sprite;
 		GameObject go = new GameObject(sprite.name);
 		go.layer = LayerMask.NameToLayer("UI");
 		go.transform.parent = transform;
@@ -20,13 +25,13 @@ public class UIMain : MonoBehaviour {
 		image.SetNativeSize();
 	}
 
-	private Sprite loadSprite(string spriteName){
+	private GameObject loadSprite(string spriteName){
 		#if USE_ASSETBUNDLE
 		if(assetbundle == null)
-		assetbundle = AssetBundle.CreateFromFile(Application.streamingAssetsPath +"/Main.assetbundle");
-		return assetbundle.Load(spriteName) as Sprite;
+			assetbundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath +"/flagbundle");
+		return assetbundle.LoadAsset(spriteName) as GameObject;
 		#else
-		return Resources.Load<GameObject>("Sprite/" + spriteName).GetComponent<SpriteRenderer>().sprite;
+		return Resources.Load<GameObject>("Sprite/" + spriteName);
 		#endif	
 	}
 
