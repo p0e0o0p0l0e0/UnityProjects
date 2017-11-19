@@ -21,6 +21,7 @@ class NonCacheBundle : MonoBehaviour
 			#else
 			string.Empty;
 			#endif
+		
 		// 从URL中下载文件，不会存储在缓存中。
 		using (WWW www = new WWW(BundleURL))
 		{

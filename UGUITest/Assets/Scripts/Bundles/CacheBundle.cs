@@ -32,7 +32,6 @@ public class CacheBundle : MonoBehaviour
 		// 需要等待缓存准备好
 		while (!Caching.ready)
 			yield return null;
-//		Caching.CleanCache();
 
 		// 有相同版本号的AssetBundle就从缓存中获取，否则下载进缓存。
 		using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))
