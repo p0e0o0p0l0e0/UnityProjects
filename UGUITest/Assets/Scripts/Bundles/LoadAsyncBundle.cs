@@ -4,20 +4,19 @@ using System.Collections;
 
 public class LoadAsyncBundle : MonoBehaviour
 {
-
 	//根据平台，得到相应的路径
 	public static readonly string BundleURL =
 		#if UNITY_ANDROID
-		"jar:file://" + Application.dataPath + "!/assets/MyAssetBundles/shape/cube";
+		"jar:file://" + Application.dataPath + "!/assets/MyAssetBundles/flagbundle";
 		#elif UNITY_IPHONE
-		Application.dataPath + "/Raw/MyAssetBundles/shape/cube";
+		Application.dataPath + "/Raw/MyAssetBundles/flagbundle";
 		#elif UNITY_STANDALONE_WIN || UNITY_EDITOR
-		"file://" + Application.dataPath + "/MyAssetBundles/shape/sphere";
+		"file://" + Application.streamingAssetsPath + "/flagbundle";//由于是编辑器下，我们使用这个路径。
 		#else
 		string.Empty;
 		#endif
 
-	private string AssetName = "Sphere1";
+	private string AssetName = "flag_green";
 
 	IEnumerator Start()
 	{

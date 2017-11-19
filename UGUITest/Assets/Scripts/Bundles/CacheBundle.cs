@@ -5,7 +5,16 @@ using System.Collections;
 public class CacheBundle : MonoBehaviour
 {
 	//根据平台，得到相应的路径
-	public static readonly string BundleURL =
+	public static string BundleURL = string.Empty;
+	private string AssetName = "flag_green";
+
+	//版本号
+	public int version;
+
+	void Start()
+	{
+		//根据平台，得到相应的路径
+		BundleURL = 
 		#if UNITY_ANDROID
 		"jar:file://" + Application.dataPath + "!/assets/MyAssetBundles/flagbundle";
 		#elif UNITY_IPHONE
@@ -15,14 +24,6 @@ public class CacheBundle : MonoBehaviour
 		#else
 		string.Empty;
 		#endif
-	
-	private string AssetName = "flag_blue";
-
-	//版本号
-	public int version;
-
-	void Start()
-	{
 		StartCoroutine(DownloadAndCache());
 	}
 
@@ -31,6 +32,7 @@ public class CacheBundle : MonoBehaviour
 		// 需要等待缓存准备好
 		while (!Caching.ready)
 			yield return null;
+//		Caching.CleanCache();
 
 		// 有相同版本号的AssetBundle就从缓存中获取，否则下载进缓存。
 		using (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))

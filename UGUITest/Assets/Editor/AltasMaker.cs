@@ -9,7 +9,7 @@ public class AltasMaker
 	[MenuItem ("MyMenu/1 AtlasMaker")]
 	static private void MakeAtlas()
 	{
-		string spriteDir = Application.dataPath + "/Prefabs/Sprite";
+		string spriteDir = Application.dataPath + "/Prefabs/Sprites";
 		Debug.Log("spriteDir : " + spriteDir);
 		if(!Directory.Exists(spriteDir)){
 			Directory.CreateDirectory(spriteDir);
