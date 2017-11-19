@@ -21,7 +21,9 @@ class NonCacheBundle : MonoBehaviour
 			#else
 			string.Empty;
 			#endif
-		
+
+		yield return new WaitForSeconds(1f);
+
 		// 从URL中下载文件，不会存储在缓存中。
 		using (WWW www = new WWW(BundleURL))
 		{
@@ -34,6 +36,7 @@ class NonCacheBundle : MonoBehaviour
 			go.layer = LayerMask.NameToLayer("UI");
 			go.transform.parent = transform;
 			go.transform.position = new Vector3(0f, 0f, 0f);
+
 			// 卸载加载完之后的AssetBundle，节省内存。
 			bundle.Unload(false);
 

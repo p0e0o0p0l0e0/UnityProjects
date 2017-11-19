@@ -44,6 +44,7 @@ public class CacheBundle : MonoBehaviour
 			go.layer = LayerMask.NameToLayer("UI");
 			go.transform.parent = transform;
 			go.transform.position = new Vector3(1.5f, 0f, 0f);
+
 			// 卸载加载完之后的AssetBundle，节省内存。
 			bundle.Unload(false);
 
