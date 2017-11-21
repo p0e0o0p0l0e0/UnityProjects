@@ -18,6 +18,9 @@ public class EventTest : MonoBehaviour
 
 	private void OnButtonClick (GameObject go)
 	{
-		Debug.Log ("DoSomeThings");
+		if(go == button.gameObject)
+		{
+			Debug.Log ("DoSomeThings");
+		}
 	}
 }
