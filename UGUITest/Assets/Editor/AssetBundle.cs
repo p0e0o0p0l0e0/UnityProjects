@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using System.IO;
+using UnityEditor.Experimental.Build.AssetBundle;
 
 public class AssetBundle
 {
@@ -74,11 +75,11 @@ public class AssetBundle
 
 	static private BuildTarget GetBuildTarget()
 	{
-		BuildTarget target = BuildTarget.WebPlayer;
+		BuildTarget target = BuildTarget.iOS;
 		#if UNITY_STANDALONE
 		target = BuildTarget.StandaloneOSXIntel64;
 		#elif UNITY_IPHONE
-		target = BuildTarget.iPhone;
+		target = BuildTarget.iOS;
 		#elif UNITY_ANDROID
 		target = BuildTarget.Android;
 		#endif

@@ -23,6 +23,6 @@ public class GameStart : MonoBehaviour {
 
 	void OnApplicationQuit ()
 	{
-		Caching.CleanCache();
+		Caching.ClearAllCachedVersions("flagbundle");
 	}
 }
