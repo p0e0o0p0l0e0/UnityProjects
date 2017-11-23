@@ -43,6 +43,9 @@
     <Reference Include="UnityEditor">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="GameFramework">
+      <HintPath>Assets\GameFramework\Libraries\GameFramework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Example\ProcedureExample.cs" />
@@ -234,9 +237,6 @@
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="GameFramework">
- <HintPath>/Users/zhanglinqi/Documents/GameFramework/Assets/GameFramework/Libraries/GameFramework.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.SharpZipLib">
  <HintPath>/Users/zhanglinqi/Documents/GameFramework/Assets/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
