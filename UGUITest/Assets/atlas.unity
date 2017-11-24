@@ -1154,11 +1154,6 @@ GameObject:
   - 223: {fileID: 1627078448}
   - 114: {fileID: 1627078447}
   - 114: {fileID: 1627078446}
-  - 114: {fileID: 1627078445}
-  - 114: {fileID: 1627078444}
-  - 114: {fileID: 1627078443}
-  - 114: {fileID: 1627078442}
-  - 114: {fileID: 1627078441}
   m_Layer: 5
   m_Name: Canvas2
   m_TagString: Untagged
@@ -1166,62 +1161,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1627078441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627078440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf4995c1d00f4091be3fdc40d10ee44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1627078442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627078440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef5fc364595b4c56973c9452c366d5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1627078443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627078440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3327c0aa461486f9d4dc73449d9e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 0
---- !u!114 &1627078444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627078440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4d395d163094bb3be7a88261b5be06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1627078445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627078440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10df00b6279f64850aa2db445865d7f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1627078446
 MonoBehaviour:
   m_ObjectHideFlags: 0
