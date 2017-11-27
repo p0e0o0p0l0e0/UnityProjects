@@ -43,9 +43,6 @@
     <Reference Include="UnityEditor">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="GameFramework">
-      <HintPath>Assets\GameFramework\Libraries\GameFramework.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Example\ProcedureExample.cs" />
@@ -232,14 +229,17 @@
      <Compile Include="Assets\GameFramework\Scripts\Runtime\WebRequest\WebRequestComponent.cs" />
      <None Include="Assets\GameFramework\Libraries\link.xml" />
      <None Include="Assets\GameFramework\Libraries\GameFramework.xml" />
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="GameFramework">
+ <HintPath>/Users/zhanglinqi/Documents/github/UnityProjects/GameFramework/Assets/GameFramework/Libraries/GameFramework.dll</HintPath>
+ </Reference>
  <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>/Users/zhanglinqi/Documents/GameFramework/Assets/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
+ <HintPath>/Users/zhanglinqi/Documents/github/UnityProjects/GameFramework/Assets/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
