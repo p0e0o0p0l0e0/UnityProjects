@@ -1,5 +1,0 @@
-/Users/zhanglinqi/Documents/csharpProject/algorithmtest/algorithmtest/bin/Debug/algorithmtest.exe
-/Users/zhanglinqi/Documents/csharpProject/algorithmtest/algorithmtest/bin/Debug/algorithmtest.pdb
-/Users/zhanglinqi/Documents/csharpProject/algorithmtest/algorithmtest/obj/x86/Debug/algorithmtest.csproj.CoreCompileInputs.cache
-/Users/zhanglinqi/Documents/csharpProject/algorithmtest/algorithmtest/obj/x86/Debug/algorithmtest.exe
-/Users/zhanglinqi/Documents/csharpProject/algorithmtest/algorithmtest/obj/x86/Debug/algorithmtest.pdb
