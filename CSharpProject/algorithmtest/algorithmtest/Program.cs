@@ -4,7 +4,7 @@ namespace algorithmtest
 {
     class MainClass
     {
-        static readonly int[] A = { 10, 8, 12, 43, 11, 49, 23, 30, 1, 32, 44, 98, 77, 15};
+        static readonly int[] array = { 12, 8, 10, 43, 51, 49, 32, 30};
 
         public static void Main(string[] args)
         {
@@ -12,13 +12,15 @@ namespace algorithmtest
             Console.Write("排序前结果：");
             ShowResult();
 
-            Console.Write("排序后结果：");
-            //InsertionSort(A, A.Length);
-            //BubbleSort(A, A.Length);
-            //CocktailSort(A, A.Length);
-            //SelectionSort(A, A.Length);
-            //InsertionSortDichotomy(A, A.Length);
-            ShellSort(A, A.Length);
+            Console.Write("排序后结果：\n");
+            //InsertionSort(array, array.Length);
+            //BubbleSort(array, array.Length);
+            //CocktailSort(array, array.Length);
+            //SelectionSort(array, array.Length);
+            //InsertionSortDichotomy(array, array.Length);
+            //ShellSort(array, array.Length);
+            //MergeSortRecursion(array, 0, array.Length - 1);
+            MergeSortIteration(array, array.Length);
         }
 
         // 冒泡排序(Bubble Sort): 从低到高去比较序列里的每个元素
@@ -195,7 +197,7 @@ namespace algorithmtest
             while (h >= 1)
             {
                 h = (h - 1) / param;
-                if(h > 0)
+                if (h > 0)
                 {
                     Console.Write("h: {0, 2} ---- ", h);
                 }
@@ -214,10 +216,81 @@ namespace algorithmtest
                     }
                     A[j + h] = card;
                 }
-				ShowResult();
+                ShowResult();
             }
         }
 
+        // 归并排序(Merge Sort)
+        // 分类 -------------- 内部比较排序
+        // 数据结构 ---------- 数组
+        // 最差时间复杂度 ---- O(nlogn)
+        // 最优时间复杂度 ---- O(nlogn)
+        // 平均时间复杂度 ---- O(nlogn)
+        // 所需辅助空间 ------ O(n)
+        // 稳定性 ------------ 稳定
+        // 1 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列
+        // 2 设定两个指针，最初位置分别为两个已经排序序列的起始位置
+        // 3 比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置
+        // 4 重复步骤3直到某一指针到达序列尾
+        // 5 将另一序列剩下的所有元素直接复制到合并序列尾
+        static void Merge(int[] A, int left, int mid, int right)
+        {
+            int len = right - left + 1;
+            int[] temp = new int[len];
+            int index = 0, i = left, j = mid + 1;
+            while (i <= mid && j <= right)
+            {
+                temp[index++] = A[i] <= A[j] ? A[i++] : A[j++];
+            }
+            while(i <= mid)
+            {
+                temp[index++] = A[i++];
+            }
+            while(j <= right)
+            {
+                temp[index++] = A[j++];
+            }
+            for (int k = 0; k < len; k++)
+            {
+                A[left++] = temp[k];
+            }
+            ShowResult();
+        }
+
+        static void MergeSortRecursion(int[] A, int left, int right)
+        {
+            if (left == right)
+            {
+                return;
+            }
+			int mid = (left + right) / 2;
+            if (left < right)
+            {
+                MergeSortRecursion(A, left, mid);
+                MergeSortRecursion(A, mid + 1, right);
+            }
+			Merge(A, left, mid, right);
+            ShowResult();
+        }
+
+        static void MergeSortIteration(int[] A, int len)    // 非递归(迭代)实现的归并排序(自底向上)
+        {
+            int left = 0, mid = 0, right = 0;// 子数组索引,前一个为A[left...mid]，后一个子数组为A[mid+1...right]
+            for (int i = 1; i < len; i *= 2)        // 子数组的大小i初始为1，每轮翻倍
+            {
+                left = 0;
+                while (left + i < len)              // 后一个子数组存在(需要归并)
+                {
+                    mid = left + i - 1;
+                    right = mid + i < len ? mid + i : len - 1;// 后一个子数组大小可能不够
+                    Console.WriteLine("i = {0}, left = {1}, mid = {2}, right = {3}", i, left, mid, right);
+                    Merge(A, left, mid, right);
+                    left = right + 1;               // 前一个子数组索引向后移动
+                }
+				Console.WriteLine("i = {0}, left = {1}, mid = {2}, right = {3}", i, left, mid, right);
+            }
+            ShowResult();
+        }
 
         static void Swap(int[] A, int i, int j)
         {
@@ -228,10 +301,10 @@ namespace algorithmtest
 
         static void ShowResult()
         {
-            for (int i = 0; i < A.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 //Console.Write(A[i] + " ");
-                Console.Write("{0, -3}", A[i]); // 三位左对齐 
+                Console.Write("{0, -3}", array[i]); // 三位左对齐 
             }
             Console.WriteLine();
         }
