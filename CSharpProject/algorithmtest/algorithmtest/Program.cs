@@ -8,7 +8,7 @@ namespace algorithmtest
 
         public static void Main(string[] args)
         {
-            
+
             Console.Write("排序前结果：");
             ShowResult();
 
@@ -17,7 +17,8 @@ namespace algorithmtest
             //BubbleSort(A, A.Length);
             //CocktailSort(A, A.Length);
             //SelectionSort(A, A.Length);
-            InsertionSortDichotomy(A, A.Length);
+            //InsertionSortDichotomy(A, A.Length);
+            ShellSort(A, A.Length);
         }
 
         // 插入排序(Insertion Sort)
@@ -89,7 +90,7 @@ namespace algorithmtest
             {
                 for (int i = left; i < right; i++)
                 {
-                    if(A[i] > A[i + 1])
+                    if (A[i] > A[i + 1])
                     {
                         Swap(A, i, i + 1);
                     }
@@ -97,9 +98,9 @@ namespace algorithmtest
                 right--;
                 for (int i = right; i > left; i--)
                 {
-                    if(A[i] < A[i - 1])
+                    if (A[i] < A[i - 1])
                     {
-                        Swap(A, i , i - 1);
+                        Swap(A, i, i - 1);
                     }
                 }
                 left++;
@@ -122,12 +123,12 @@ namespace algorithmtest
                 int min = i;
                 for (int j = i + 1; j < n; j++) // 未排序序列
                 {
-                    if(A[j] < A[min])       // 找出未排序序列中的最小值
+                    if (A[j] < A[min])       // 找出未排序序列中的最小值
                     {
                         min = j;
                     }
                 }
-                if(i != min)
+                if (i != min)
                 {
                     Swap(A, i, min);    // 放到已排序序列的末尾，该操作很有可能把稳定性打乱
                 }
@@ -153,7 +154,7 @@ namespace algorithmtest
                 while (left <= right)
                 {
                     int mid = (left + right) / 2;
-                    if(A[mid] <= card)
+                    if (A[mid] <= card)
                     {
                         left = mid + 1;
                     }
@@ -171,6 +172,43 @@ namespace algorithmtest
             ShowResult();
         }
 
+        // 插入排序的更高效改进：希尔排序(Shell Sort)
+        // 分类 -------------- 内部比较排序
+        // 数据结构 ---------- 数组
+        // 最差时间复杂度 ---- 根据步长序列的不同而不同。已知最好的为O(n(logn)^2)
+        // 最优时间复杂度 ---- O(n)
+        // 平均时间复杂度 ---- 根据步长序列的不同而不同。
+        // 所需辅助空间 ------ O(1)
+        // 稳定性 ------------ 不稳定
+        // 希尔排序通过将比较的全部元素分为几个区域来提升插入排序的性能。
+        // 这样可以让一个元素可以一次性地朝最终位置前进一大步。
+        // 然后算法再取越来越小的步长进行排序，算法的最后一步就是普通的插入排序，但是到了这步，需排序的数据几乎是已排好的了（此时插入排序较快）。
+        static void ShellSort(int[] A, int n)
+        {
+            int h = 0;
+            while (h <= n)                          // 生成初始增量
+            {
+                h = 3 * h + 1;
+            }
+            while (h >= 1)
+            {
+                for (int i = h; i < n; i++)
+                {
+                    int j = i - h;
+                    int card = A[i];
+                    while (j >= 0 && A[j] > card)
+                    {
+                        A[j + h] = A[j];
+                        j = j - h;
+                    }
+                    A[j + h] = card;
+                }
+                h = (h - 1) / 3;
+            }
+            ShowResult();
+        }
+
+
         static void Swap(int[] A, int i, int j)
         {
             int temp = A[i];
@@ -178,7 +216,7 @@ namespace algorithmtest
             A[j] = temp;
         }
 
-        static void ShowResult ()
+        static void ShowResult()
         {
             for (int i = 0; i < A.Length; i++)
             {
