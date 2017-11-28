@@ -4,7 +4,7 @@ namespace algorithmtest
 {
     class MainClass
     {
-        static readonly int[] A = { 10, 8, 12, 43, 11, 49, 23, 30 };
+        static readonly int[] A = { 10, 8, 12, 43, 11, 49, 23, 30, 1, 32, 44, 98, 77, 15};
 
         public static void Main(string[] args)
         {
@@ -186,12 +186,23 @@ namespace algorithmtest
         static void ShellSort(int[] A, int n)
         {
             int h = 0;
+            int param = 3;
             while (h <= n)                          // 生成初始增量
             {
-                h = 3 * h + 1;
+                h = param * h + 1;
             }
+            Console.WriteLine();
             while (h >= 1)
             {
+                h = (h - 1) / param;
+                if(h > 0)
+                {
+                    Console.Write("h: {0, 2} ---- ", h);
+                }
+                else
+                {
+                    Console.WriteLine();
+                }
                 for (int i = h; i < n; i++)
                 {
                     int j = i - h;
@@ -203,9 +214,8 @@ namespace algorithmtest
                     }
                     A[j + h] = card;
                 }
-                h = (h - 1) / 3;
+				ShowResult();
             }
-            ShowResult();
         }
 
 
