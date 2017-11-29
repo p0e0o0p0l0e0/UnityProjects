@@ -20,7 +20,10 @@ namespace algorithmtest
             //InsertionSortDichotomy(array, array.Length);
             //ShellSort(array, array.Length);
             //MergeSortRecursion(array, 0, array.Length - 1);
-            MergeSortIteration(array, array.Length);
+            //MergeSortIteration(array, array.Length);
+            //HeapSort(array, array.Length);
+            HeapSort(array);
+            ShowResult();
         }
 
         // 冒泡排序(Bubble Sort): 从低到高去比较序列里的每个元素
@@ -80,7 +83,6 @@ namespace algorithmtest
                 }
                 left++;
             }
-            ShowResult();
         }
 
         // 选择排序(Selection Sort)
@@ -108,7 +110,6 @@ namespace algorithmtest
                     Swap(A, i, min);    // 放到已排序序列的末尾，该操作很有可能把稳定性打乱
                 }
             }
-            ShowResult();
         }
 
         // 插入排序(Insertion Sort)
@@ -135,7 +136,6 @@ namespace algorithmtest
                 }
                 A[j + 1] = card;
             }
-            ShowResult();
         }
 
         // 插入排序的改进：二分插入排序
@@ -171,7 +171,6 @@ namespace algorithmtest
                 }
                 A[left] = card;
             }
-            ShowResult();
         }
 
         // 插入排序的更高效改进：希尔排序(Shell Sort)
@@ -270,7 +269,6 @@ namespace algorithmtest
                 MergeSortRecursion(A, mid + 1, right);
             }
 			Merge(A, left, mid, right);
-            ShowResult();
         }
 
         static void MergeSortIteration(int[] A, int len)    // 非递归(迭代)实现的归并排序(自底向上)
@@ -289,7 +287,119 @@ namespace algorithmtest
                 }
 				Console.WriteLine("i = {0}, left = {1}, mid = {2}, right = {3}", i, left, mid, right);
             }
-            ShowResult();
+        }
+
+        // 堆排序(Heap Sort)
+        // 分类 -------------- 内部比较排序
+        // 数据结构 ---------- 数组
+        // 最差时间复杂度 ---- O(nlogn)
+        // 最优时间复杂度 ---- O(nlogn)
+        // 平均时间复杂度 ---- O(nlogn)
+        // 所需辅助空间 ------ O(1)
+        // 稳定性 ------------ 不稳定
+        //static void Heapify(int[] A, int i, int size)
+        //{
+        //    int left_child = 2 * i + 1;
+        //    int right_child = 2 * i + 2;
+        //    int max = i;
+        //    if (left_child < size && A[left_child] > A[max])
+        //    {
+        //        max = left_child;
+        //    }
+        //    if(right_child < size && A[right_child] > A[max])
+        //    {
+        //        max = right_child;
+        //    }
+        //    if(max != i){
+        //        Swap(A, i, max);
+        //        Heapify(A, max, size);
+        //    }
+        //}
+
+        //static int BuildHeap(int[] A, int n) // 建堆，时间复杂度O(n)
+        //{
+        //    int heap_size = n;
+        //    for (int i = heap_size / 2 - 1; i >= 0; i--) // 从每一个非叶结点开始向下进行堆调整
+        //    {
+        //        Heapify(A, i, heap_size);
+        //    }
+        //    return heap_size;
+        //}
+
+        //static void HeapSort(int[] A, int n)
+        //{
+        //    int heap_size = BuildHeap(A, n);    // 建立一个最大堆
+        //    while(heap_size > 1)                // 堆（无序区）元素个数大于1，未完成排序
+        //    {
+        //        // 将堆顶元素与堆的最后一个元素互换，并从堆中去掉最后一个元素
+        //        // 此处交换操作很有可能把后面元素的稳定性打乱，所以堆排序是不稳定的排序算法
+        //        Swap(A, 0, --heap_size);
+        //        Heapify(A, 0, heap_size);       // 从新的堆顶元素开始向下进行堆调整，时间复杂度O(logn
+        //    }
+        //}
+
+        // 堆排序(Heap Sort)
+        // 分类 -------------- 内部比较排序
+        // 数据结构 ---------- 数组
+        // 最差时间复杂度 ---- O(nlogn)
+        // 最优时间复杂度 ---- O(nlogn)
+        // 平均时间复杂度 ---- O(nlogn)
+        // 所需辅助空间 ------ O(1)
+        // 稳定性 ------------ 不稳定
+        // 堆是一棵顺序存储的完全二叉树。
+        // (1) Ri <= R2i+1 且 Ri <= R2i+2 (小根堆)
+        // (2) Ri >= R2i+1 且 Ri >= R2i+2 (大根堆)
+        // 设当前元素在数组中以R[i]表示，那么，
+		// (1) 它的左孩子结点是：R[2 * i + 1];
+		// (2) 它的右孩子结点是：R[2 * i + 2];
+		// (3) 它的父结点是：R[(i - 1) / 2];
+		// (4) R[i] <= R[2 * i + 1] 且 R[i] <= R[2i + 2]。
+        // 堆排序的思想：
+        // (1）根据初始数组去构造初始堆（构建一个完全二叉树，保证所有的父结点都比它的孩子结点数值大）。
+		// (2）每次交换第一个和最后一个元素，输出最后一个元素（最大值），然后把剩下元素重新调整为大根堆。 
+		static void HeapAdjust(int[] A, int parent, int length)
+        {
+            int temp = A[parent];   // temp保存当前父节点
+            int child = 2 * parent + 1; // 先获得左孩子
+
+            while(child < length)
+            {
+                // 如果有右孩子结点，并且右孩子结点的值大于左孩子结点，则选取右孩子结点
+                if(child + 1 < length && A[child] < A[child + 1])
+                {
+                    child++;
+                }
+
+                // 如果父结点的值已经大于孩子结点的值，则直接结束
+                if(temp >= A[child])
+                {
+                    break;
+                }
+
+                // 把孩子结点的值赋给父结点
+                A[parent] = A[child];
+                // 选取孩子结点的左孩子结点,继续向下筛选
+                parent = child;
+                child = 2 * child + 1;
+            }
+            A[parent] = temp;
+        }
+
+        static void HeapSort(int[] A)
+        {
+            // 循环建立初始堆
+            for (int i = A.Length / 2; i >= 0; i--)
+            {
+                HeapAdjust(A, i, A.Length);
+            }
+            // 进行n-1次循环，完成排序
+            for (int i = A.Length - 1; i > 0; i--)
+            {
+                // 最后一个元素和第一元素进行交换
+                Swap(A, 0, i);
+                // 筛选 R[0] 结点，得到i-1个结点的堆
+                HeapAdjust(A, 0, i);
+            }
         }
 
         static void Swap(int[] A, int i, int j)
