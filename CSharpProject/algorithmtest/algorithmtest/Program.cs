@@ -383,16 +383,20 @@ namespace algorithmtest
                 child = 2 * child + 1;
             }
             A[parent] = temp;
+
+            ShowHeapResult();
         }
 
         static void HeapSort(int[] A)
         {
+            ShowHeapResult();
             // 循环建立初始堆
-            for (int i = A.Length / 2; i >= 0; i--)
+            for (int i = A.Length / 2; i >= 0; i--) // 从最后一个可能的父节点开始调整堆，使得父节点一定比子节点大
             {
                 HeapAdjust(A, i, A.Length);
             }
-            // 进行n-1次循环，完成排序
+            // 进行一次Swap后，i--。根节点不一定满足大于子节点数值，因此进行Adjust。
+            // 进行n-1次循环，每次Adjust都是将次大值调整到根节点，然后再Swap。
             for (int i = A.Length - 1; i > 0; i--)
             {
                 // 最后一个元素和第一元素进行交换
@@ -404,6 +408,7 @@ namespace algorithmtest
 
         static void Swap(int[] A, int i, int j)
         {
+			Console.WriteLine("Swap: A{0} = {2} and A{1} = {3}", i, j, A[i], A[j]);
             int temp = A[i];
             A[i] = A[j];
             A[j] = temp;
@@ -417,6 +422,43 @@ namespace algorithmtest
                 Console.Write("{0, -3}", array[i]); // 三位左对齐 
             }
             Console.WriteLine();
+        }
+
+        static void ShowHeapResult()
+        {
+            Console.WriteLine("-------------------------");
+            for (int i = 0; i < array.Length; i++)
+            {
+                switch(i)
+                {
+                    case 0:
+						Console.WriteLine("        {0, 2}", array[i]);
+                        break;
+                    case 1:
+                        Console.Write("    {0, 2}", array[i]);
+                        break;
+                    case 2:
+                        Console.WriteLine("      {0, 2}", array[i]);
+                        break;
+                    case 3:
+                        Console.Write("  {0, 2}", array[i]);
+                        break;
+                    case 4:
+                        Console.Write("  {0, 2}", array[i]);
+                        break;
+                    case 5:
+                        Console.Write("  {0, 2}", array[i]);
+                        break;
+                    case 6:
+                        Console.WriteLine("  {0, 2}", array[i]);
+                        break;
+                    case 7:
+                        Console.WriteLine("{0, 2}", array[i]);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
