@@ -10,3 +10,6 @@ UGUITest.sln
 CSharpProject/algorithmtest/algorithmtest/bin
 CSharpProject/algorithmtest/algorithmtest/obj
 algorithmtest.userprefs
+GameFramework/Temp
+GameFramework/obj
+GameFramework.userprefs
