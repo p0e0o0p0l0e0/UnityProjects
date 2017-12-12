@@ -6,19 +6,6 @@ using GameFramework.Event;
 
 namespace UnityGameFramework.Runtime
 {
-	/// <summary>
-	/// 事件类型编号。
-	/// </summary>
-	public enum EventId
-	{
-		GameEventStart,
-
-		/// <summary>
-		/// 玩家生命值改变事件。
-		/// </summary>
-		PlayerHPChanged,
-	}
-
 	public class PlayerHPChangedEventArgs : GameEventArgs
 	{
 		/// <summary>
@@ -37,9 +24,11 @@ namespace UnityGameFramework.Runtime
 		{
 			get
 			{
-				return (int)EventId.PlayerHPChanged;
+				return EventId;
 			}
 		}
+
+		public static readonly int EventId = typeof(PlayerHPChangedEventArgs).GetHashCode();
 
 		/// <summary>
 		/// 玩家新的生命值。

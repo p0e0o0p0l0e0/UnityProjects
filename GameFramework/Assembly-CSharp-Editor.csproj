@@ -104,6 +104,7 @@
      <Compile Include="Assets\GameFramework\Scripts\Editor\Misc\LogRedirection.cs" />
      <Compile Include="Assets\GameFramework\Scripts\Editor\Misc\OpenFolder.cs" />
      <Compile Include="Assets\GameFramework\Scripts\Editor\Misc\Type.cs" />
+     <None Include="Assets\DataTables\Scene.txt" />
      <None Include="Assets\GameFramework\Libraries\link.xml" />
      <None Include="Assets\GameFramework\Libraries\GameFramework.xml" />
  <Reference Include="UnityEngine.Networking">

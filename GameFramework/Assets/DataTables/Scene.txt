@@ -1,0 +1,6 @@
+#	场景配置表
+#	Id	Name	AssetName	BackgroundMusicId
+#	int	string	string	int
+#	场景编号	备注	场景名称	资源名称	背景音乐编号
+	1	默认场景	DefaultScene	DefaultScene	1
+	2	战斗场景	BattleScene	BattleScene	2

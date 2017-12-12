@@ -16,7 +16,7 @@ namespace UnityGameFramework
 		private void RunEventExample()
 		{
 			EventComponent eventComponent = GameEntry.GetComponent<EventComponent>();
-			eventComponent.Subscribe((int)EventId.PlayerHPChanged, OnPlayerHPChanged);
+			eventComponent.Subscribe(PlayerHPChangedEventArgs.EventId, OnPlayerHPChanged);
 			eventComponent.Fire(this, new PlayerHPChangedEventArgs(1000));
 		}
 
