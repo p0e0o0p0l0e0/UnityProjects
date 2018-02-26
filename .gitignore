@@ -13,3 +13,4 @@ algorithmtest.userprefs
 GameFramework/Temp
 GameFramework/obj
 GameFramework.userprefs
+*.code-workspace
