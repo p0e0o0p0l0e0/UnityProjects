@@ -7,10 +7,10 @@ function newCounter()
 end
 
 c1 = newCounter()
-print(c1())
-print(c1())
+print(c1()) -- 1
+print(c1()) -- 2
 
 c2 = newCounter()
-print(c2())
-print(c1())
-print(c2())
+print(c2()) --1
+print(c1()) --3
+print(c2()) --2
